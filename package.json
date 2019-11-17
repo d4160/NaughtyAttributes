@@ -1,0 +1,26 @@
+{
+  "name": "dbrizov.naughty-attributes",
+  "displayName": "Naughty Attributes",
+  "version": "1.0.3",
+  "unity": "2017.1",
+  "description": "NaughtyAttributes is an extension for the Unity Inspector. It expands the range of attributes that Unity provides so that you can create powerful inspectors without the need of custom editors or property drawers. It also provides attributes that can be applied to non-serialized fields or functions.",
+  "keywords": [
+    "editor",
+    "unity",
+    "inspector"
+  ],
+  "author": {
+    "name": "dbrizov"
+  },
+  "samples": [
+    {
+      "displayName": "Naughty Attributes Examples",
+      "description": "Overview and details examples.",
+      "path": "Samples~"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbrizov/NaughtyAttributes.git"
+  }
+}
