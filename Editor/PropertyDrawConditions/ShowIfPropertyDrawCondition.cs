@@ -29,6 +29,13 @@ namespace NaughtyAttributes.Editor
                 {
                     conditionValues.Add((bool)conditionMethod.Invoke(target, null));
                 }
+
+                PropertyInfo conditionProperty = ReflectionUtility.GetProperty(target, condition);
+                if (conditionProperty != null &&
+                    conditionProperty.PropertyType == typeof(bool))
+                {
+                    conditionValues.Add((bool)conditionProperty.GetValue(target));
+                }
             }
 
             if (conditionValues.Count > 0)
