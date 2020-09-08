@@ -7,7 +7,7 @@ namespace NaughtyAttributes.Test
 		[Expandable]
 		public ScriptableObject obj0;
 
-        public ExpandableScriptableObjectNest1 nest1;
+		public ExpandableScriptableObjectNest1 nest1;
 	}
 
 	[System.Serializable]
