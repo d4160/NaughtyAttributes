@@ -24,9 +24,11 @@ namespace NaughtyAttributes.Editor
 			// Check if enabled and draw
 			EditorGUI.BeginChangeCheck();
 			bool enabled = PropertyUtility.IsEnabled(property);
-			GUI.enabled = enabled;
-			OnGUI_Internal(rect, property, new GUIContent(PropertyUtility.GetLabel(property)));
-			GUI.enabled = true;
+
+			using (new EditorGUI.DisabledScope(disabled: !enabled))
+			{
+				OnGUI_Internal(rect, property, new GUIContent(PropertyUtility.GetLabel(property)));
+			}
 
 			// Call OnValueChanged callbacks
 			if (EditorGUI.EndChangeCheck())
@@ -53,14 +55,14 @@ namespace NaughtyAttributes.Editor
 			return base.GetPropertyHeight(property, label);
 		}
 
-		protected virtual float GetPropertyHeight(SerializedProperty property)
+		protected float GetPropertyHeight(SerializedProperty property)
 		{
 			return EditorGUI.GetPropertyHeight(property, true);
 		}
 
 		public virtual float GetHelpBoxHeight()
 		{
-			return EditorGUIUtility.singleLineHeight * 3.0f;
+			return EditorGUIUtility.singleLineHeight * 2.0f;
 		}
 
 		public void DrawDefaultPropertyAndHelpBox(Rect rect, SerializedProperty property, string message, MessageType messageType)
@@ -70,7 +72,7 @@ namespace NaughtyAttributes.Editor
 					rect.x + indentLength,
 					rect.y,
 					rect.width - indentLength,
-					GetHelpBoxHeight() - 2.0f);
+					GetHelpBoxHeight());
 
 			NaughtyEditorGUI.HelpBox(helpBoxRect, message, MessageType.Warning, context: property.serializedObject.targetObject);
 
