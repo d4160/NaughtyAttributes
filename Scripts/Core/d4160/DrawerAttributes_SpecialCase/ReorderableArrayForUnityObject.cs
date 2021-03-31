@@ -2,9 +2,20 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityExtensions;
+using InspectInLine;
 
 namespace Malee {
+	
+	public interface IReorderableObjectOnRemoved
+	{
+		void OnRemoved(int index);
+	}
+
+	public interface IReorderableObjectOnAdded
+	{
+		void OnAdded(int index);
+	}
+
     /// <summary>
     /// Additionally allow inspecting inline the UnityObject like MonoBehaviours or ScriptableObjects
     /// </summary>
@@ -74,11 +85,13 @@ namespace Malee {
 
 		public void RemoveAt(int index) {
 
+			Debug.Log(index);
 			array.RemoveAt(index);
 		}
 
 		public void Add(T item) {
 
+			Debug.Log(item);
 			array.Add(item);
 		}
 

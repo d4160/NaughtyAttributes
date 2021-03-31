@@ -377,6 +377,7 @@ namespace Malee.Editor {
 			if (property != null) {
 
 				property.objectReferenceValue = item;
+				//list.serializedObject.
 			}
 
 			return property;
@@ -424,6 +425,8 @@ namespace Malee.Editor {
 
 					property.objectReferenceValue = null;
 				}
+
+				(list.serializedObject.targetObject as IReorderableObjectOnRemoved)?.OnRemoved(index);
 
 				list.DeleteArrayElementAtIndex(index);
 				selection.Remove(index);
@@ -1100,6 +1103,8 @@ namespace Malee.Editor {
 				else {
 
 					AddItem();
+
+					(list.serializedObject.targetObject as IReorderableObjectOnAdded)?.OnAdded(list.arraySize - 1);
 				}
 			}
 

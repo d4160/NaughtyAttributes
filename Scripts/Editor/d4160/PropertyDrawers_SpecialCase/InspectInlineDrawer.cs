@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using InspectInLine.Editor;
 using UnityEditor;
 using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-namespace UnityExtensions
+namespace InspectInLine
 {
 
     [CustomPropertyDrawer(typeof(InspectInlineAttribute))]

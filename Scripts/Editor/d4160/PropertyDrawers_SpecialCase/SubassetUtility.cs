@@ -6,12 +6,10 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-namespace UnityExtensions
+namespace InspectInLine.Editor
 {
-
-    internal static class SubassetUtility
+    public static class SubassetUtility
     {
-
         public static string GetAssetPath(this Object asset)
         {
             var assetPath = AssetDatabase.GetAssetPath(asset);

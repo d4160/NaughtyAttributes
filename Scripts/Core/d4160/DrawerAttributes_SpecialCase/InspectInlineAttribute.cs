@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityExtensions
+namespace InspectInLine
 {
 
     public class InspectInlineAttribute : PropertyAttribute

@@ -8,7 +8,7 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-namespace UnityExtensions
+namespace InspectInLine
 {
 
     internal static class ObjectSelector
@@ -60,7 +60,7 @@ namespace UnityExtensions
             SerializedProperty property,
             bool allowSceneObjects,
             string searchFilter = "")
-        {
+        { 
             var objectSelector = GetObjectSelector();
             ObjectSelector_ShowObjectSelectorInfo.Invoke(
                 objectSelector,

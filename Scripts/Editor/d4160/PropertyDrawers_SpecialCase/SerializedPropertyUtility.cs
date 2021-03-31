@@ -6,7 +6,7 @@ using UnityEngine;
 
 using Object = UnityEngine.Object;
 
-namespace UnityExtensions
+namespace InspectInLine
 {
 
     internal static class SerializedPropertyUtility
