@@ -8,6 +8,7 @@ namespace NaughtyAttributes
     public class DropdownIndexAttribute : DrawerAttribute
     {
         public string ValuesName { get; private set; }
+        public bool SearchOnUnityObject { get; set; }
 
         public DropdownIndexAttribute(string valuesName)
         {

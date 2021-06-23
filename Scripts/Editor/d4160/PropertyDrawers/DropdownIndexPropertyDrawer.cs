@@ -24,9 +24,9 @@ namespace NaughtyAttributes.Editor
 			EditorGUI.BeginProperty(rect, label, property);
 
 			DropdownIndexAttribute dropdownAttribute = (DropdownIndexAttribute)attribute;
-			object valuesObject = GetValues(property, dropdownAttribute.ValuesName);
+			object valuesObject = GetValues(property, dropdownAttribute.ValuesName, dropdownAttribute.SearchOnUnityObject);
 
-			if (property.propertyType == SerializedPropertyType.Integer)
+            if (property.propertyType == SerializedPropertyType.Integer)
 			{
 				if (valuesObject is IList)
 				{
@@ -93,11 +93,11 @@ namespace NaughtyAttributes.Editor
 			EditorGUI.EndProperty();
 		}
 
-		private object GetValues(SerializedProperty property, string valuesName)
+		private object GetValues(SerializedProperty property, string valuesName, bool searchOnUnityObject)
 		{
-			object target = PropertyUtility.GetTargetObjectWithProperty(property);
+			object target = searchOnUnityObject ? property.serializedObject.targetObject : PropertyUtility.GetTargetObjectWithProperty(property);
 
-			FieldInfo valuesFieldInfo = ReflectionUtility.GetField(target, valuesName);
+            FieldInfo valuesFieldInfo = ReflectionUtility.GetField(target, valuesName);
 			if (valuesFieldInfo != null)
 			{
 				return valuesFieldInfo.GetValue(target);
